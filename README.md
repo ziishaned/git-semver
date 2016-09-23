@@ -9,10 +9,8 @@
 ## Install
 
 * Download the file from [here](https://github.com/zeeshanu/git-semver/releases/download/v1.0.0/git-semver)
-* Give git-semver required permissions by running: 
-	`sudo chmod -R 755 git-semver`
-* Now move this file to your bin directory by running:
-	`sudo mv git-semver /usr/local/bin/git-profile`
+* Assign required permissions `sudo chmod -R 755 git-semver`
+* Run `sudo mv git-semver /usr/local/bin/git-profile`
 
 ## Usage
 
