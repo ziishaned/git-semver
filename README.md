@@ -4,7 +4,7 @@
 [![Latest Version](https://img.shields.io/github/release/zeeshanu/git-profile.svg?style=flat-square)](https://github.com/zeeshanu/git-profile/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
-> A CLI tool to generate [semantic versioning](semver.org) compliant tags for your git repositories. 
+> A CLI tool to generate [semantic versioning](http://semver.org) compliant tags for your git repositories. 
 
 ## Install
 
