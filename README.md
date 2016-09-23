@@ -57,6 +57,26 @@ $ git semver minor --fetch
 $ git semver major --postfix='-dev'
 ```
 
+## A real world Example
+```
+v0.0.0 // New project
+v0.1.0 // Add some functionality
+v0.2.0 // Add other new functionality
+v0.2.1 // Fix bug
+v0.3.0 // Add some functionality
+v0.3.1 // Fix bug
+v0.3.2 // Fix bug
+v0.3.3 // Fix bug
+v0.3.4 // Fix bug
+v0.4.0 // Add some functionality
+v0.4.1 // Fix bug
+v0.4.2 // Fix bug
+v1.0.0 // Code is being used in production
+v1.1.0 // Add some functionality
+v1.2.0 // Add other new functionality
+v1.2.1 // Fix bug
+v2.0.0 // Implement changes that causes backwards incompatible
+```
 
 ## Contribution
 
@@ -65,4 +85,3 @@ Feel free to fork, improve, create issues and spread the word.
 ## License
 
 MIT &copy; [Zeeshan Ahmed](http://github.com/zeeshanu)
-
