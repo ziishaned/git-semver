@@ -1,4 +1,6 @@
-# git-semver
+
+
+ # git-semver
 
 [![Build Status](https://travis-ci.org/zeeshanu/git-semver.svg?branch=master)](https://travis-ci.org/zeeshanu/git-semver)
 [![Latest Version](https://img.shields.io/github/release/zeeshanu/git-profile.svg?style=flat-square)](https://github.com/zeeshanu/git-profile/releases)
@@ -33,33 +35,46 @@ In addition to the type of release i.e. `patch`, `major` or `minor`, you can add
 
 Find some of the usage examples below
 
-> Create a patch release i.e. will increment the last part of the tag by 1
-> e.g. it will generate `0.0.1` or `1.3.1` depending upon the previous tag
+### Patch Command
+
+Create a patch release i.e. increment the last part of the tag by 1 e.g. it will generate `x.y.0` to `x.y.1`.
 
 ```shell
 $ git semver patch
 ```
 
-> Create a patch release while prefixing `v`
-> e.g. it will generate `v0.0.1` or `v1.3.2`
+### Minor Command
 
-```shell
-$ git semver patch --prefix=v
-```
-
-> Fetch before adding the tag (recommended)
-> It will fetch the remote tags before creating the new tag
+This command is use to create minor release. You can also provide `--fetch` option. The below command first fethes all the latest tags and then create a minor release. 
 
 ```shell
 $ git semver minor --fetch
 ```
 
-> Create a major release with a postfix
-> Below command will generate the tags similar to `3.0.0-dev` 
+Above command will generate `x.0.z` to `x.1.z` depending upon the previous tag.
+
+### Major Command
+
+This command will generate a major release e.g.  `0.y.z` to `1.1.z` depending upon the previous tag.
 
 ```shell
 $ git semver major --postfix='-dev'
 ```
+
+### Prefix and Postfix Usage
+
+1. Prefix
+
+If you want to create a major release while prefixing `v` then you only need to provide --prefix option. The usage of prefixing is given  below:
+
+```shell
+$ git semver patch --prefix=v
+```
+
+The above command will generate `v1.0.0` or `v1.3.2` depending upon the previous tag.
+
+2. Postfix
+Create a patch release while postfixing `-dev` then below command will generate following result `1.0.0-dev` or `1.3.2-dev` depending upon the previous tag.
 
 ## A real world Example of Semantic Versioning
 ```
