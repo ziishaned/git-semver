@@ -64,19 +64,21 @@ $ git semver major --postfix='-dev'
 ### Prefix and Postfix Usage
 
 1. Prefix
-
-If you want to create a major release while prefixing `v` then you only need to provide --prefix option. The usage of prefixing is given  below:
-
-```shell
-$ git semver patch --prefix=v
-```
-
+	If you want to create a major release while prefixing `v` then you only need to provide --prefix option. The usage of prefixing is given  below:
+ 
+ ```shell
+ $ git semver patch --prefix=v
+ ```
 The above command will generate `v1.0.0` or `v1.3.2` depending upon the previous tag.
 
 2. Postfix
-Create a patch release while postfixing `-dev` then below command will generate following result `1.0.0-dev` or `1.3.2-dev` depending upon the previous tag.
+	Create a patch release while postfixing `-dev` then below command will generate following result `1.0.0-dev` or `1.3.2-dev` depending upon the previous tag.
 
-## A real world Example of Semantic Versioning
+ ```shell
+ $ git semver patch --postfix=-dev
+ ```
+
+## A Real World Example of Semantic Versioning
 ```
 v0.0.0 // New project
 v0.1.0 // Add some functionality
