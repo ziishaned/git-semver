@@ -57,7 +57,7 @@ $ git semver minor --fetch
 $ git semver major --postfix='-dev'
 ```
 
-## A real world Example
+## A real world Example of Semantic Versioning
 ```
 v0.0.0 // New project
 v0.1.0 // Add some functionality
