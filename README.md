@@ -41,48 +41,55 @@ In addition to the type of release i.e. `patch`, `major` or `minor`, you can add
 
 Find some of the usage examples below
 
-### Patch Command
+### Tag Examples
 
-Create a patch release i.e. increment the last part of the tag by 1 e.g. it will generate `x.y.0` to `x.y.1`.
+- Below command creates a patch release i.e. increment the last part of the tag by 1 e.g. it will generate `x.y.1`, if the last tag was `x.y.0`
 
 ```shell
 $ git semver patch
 ```
 
-### Minor Command
-
-This command is use to create minor release. You can also provide `--fetch` option. The below command first fethes all the latest tags and then create a minor release. 
+- Below command creates a minor release i.e. middle part of the tag will be incremented e.g. if the last tag was `x.2.z` then it will become `x.3.z`
 
 ```shell
-$ git semver minor --fetch
+$ git semver minor
 ```
 
-Above command will generate `x.0.z` to `x.1.z` depending upon the previous tag.
-
-### Major Command
-
-This command will generate a major release e.g.  `0.y.z` to `1.1.z` depending upon the previous tag.
+- Below command will create a major release i.e. the first part of the tag will be incremented e.g. if the last tag was `0.y.z` then it will become `1.y.z`
 
 ```shell
-$ git semver major --postfix='-dev'
+$ git semver major
 ```
+
+### Fetching Remote Tags
+
+If you would want to fetch the remote tags before creating the tag, then use the `--fetch` option. For example
+
+```shell
+$ git semver patch --fetch
+```
+
+Above command will make sure that the remote tags are fetched before creating a new tag. On a sidenote, it is recommended to add this flag e.g. if you are working in a team it is quite possible that you might not have some tag locally and creating a tag without fetching might end up in duplicated tags.
 
 ### Prefix and Postfix Usage
 
 1. Prefix
-	If you want to create a major release while prefixing `v` then you only need to provide --prefix option. The usage of prefixing is given  below:
+	If you want to create a release while prefixing some keyword e.g. `v` then you can provide that using `--prefix` option. For example:
  
  ```shell
  $ git semver patch --prefix=v
  ```
-The above command will generate `v1.0.0` or `v1.3.2` depending upon the previous tag.
+
+The above command will generate tags with `v` prefixed e.g. `v1.0.0` or `v1.3.2`.
 
 2. Postfix
-	Create a patch release while postfixing `-dev` then below command will generate following result `1.0.0-dev` or `1.3.2-dev` depending upon the previous tag.
+	If you would like to append something to the end of created tag you can use `--postfix` option. For example, if you would want to append `-dev` to the tag, you can do the below
 
  ```shell
  $ git semver patch --postfix=-dev
  ```
+
+This will result in something along the lines of `3.5.1-dev` depending upon the last tag
 
 ## A Real World Example of Semantic Versioning
 ```
