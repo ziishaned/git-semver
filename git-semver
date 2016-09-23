@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php 
+
+require __DIR__.'/vendor/autoload.php';
+
+use Zeeshan\GitSemver\GitSemver;
+
+$gitsemver = new GitSemver();
+$gitsemver->runApplication();
