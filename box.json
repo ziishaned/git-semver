@@ -17,7 +17,7 @@
         }
     ],
     "git-version": "package_version",
-    "main": "git-semver",
+    "main": "bin/git-semver",
     "output": "git-semver.phar",
     "stub": true
 }
