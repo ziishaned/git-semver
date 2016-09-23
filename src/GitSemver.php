@@ -10,12 +10,20 @@ use Zeeshan\GitSemver\Commands\GitSemverMinorCommand;
 use Zeeshan\GitSemver\Commands\GitSemverPatchCommand;
 use Zeeshan\GitSemver\Commands\GitSemverCurrentCommand;
 
+/**
+ * @package Git Semver
+ * @author  Zeeshan Ahmed <ziishaned@gmail.com>
+ */
 class GitSemver
 {
     const APPLICATION_NAME = 'Git Semver';
 
     const APPLICATION_VERSION = '1.0.0';
 
+    /**
+     * Contains all regitered commands 
+     * @var array
+     */
     private $commands = [];
 
     public function __construct()
@@ -29,11 +37,19 @@ class GitSemver
         ];
     }
 
+    /**
+     * Return the commands array
+     * @return array
+     */
     public function getCommands()
     {
         return $this->commands;
     }
 
+    /**
+     * Application main entery point 
+     * @return void
+     */
     public function runApplication()
     {
         $application = new Application(self::APPLICATION_NAME, self::APPLICATION_VERSION);

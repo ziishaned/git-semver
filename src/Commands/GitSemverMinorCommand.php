@@ -8,8 +8,16 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * @package Git Semver
+ * @author  Zeeshan Ahmed <ziishaned@gmail.com>
+ */
 class GitSemverMinorCommand extends BaseCommand
 {
+    /**
+     * Configures the command
+     * @return void
+     */
     public function configure()
     {
         $this->setName('minor')
@@ -19,34 +27,47 @@ class GitSemverMinorCommand extends BaseCommand
              ->addOption('fetch', 'f', InputOption::VALUE_NONE, 'Fetch the latest versions from remote');
     }
 
+    /**
+     * Executes the command
+     * @param  Symfony\Component\Console\Output\OutputInterface                 $output 
+     * @param  Symfony\Component\Console\Input\InputInterface\InputInterface    $input  
+     * @return void                  
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->output = $output;
+        $this->output   = $output;
+        $prefix         = $input->getOption('prefix');
+        $postfix        = $input->getOption('postfix');
 
         if ($input->getOption('fetch')) {
             $this->fetchVersions();
         };
 
-        $currentVersion = $this->getVersion();
+        $currentVersion = $this->getCurrentVersion();
         $minorVersion = $this->makeMinor($currentVersion);
 
-        if ($input->getOption('prefix') || $input->getOption('postfix')) {
-            if ($input->getOption('prefix') && $input->getOption('postfix')) {
-                $minorVersion = $input->getOption('prefix') . $minorVersion . $input->getOption('postfix');
+        if ($prefix || $postfix) {
+            if ($prefix && $postfix) {
+                $minorVersion = $prefix . $minorVersion . $postfix;
             } else {
-                $minorVersion = ($input->getOption('prefix') === null) ? $minorVersion . $input->getOption('postfix') : $input->getOption('prefix') . $minorVersion;
+                $minorVersion = ($prefix === null) ? $minorVersion . $postfix : $prefix . $minorVersion;
             }
-            $this->createMinorRelease($minorVersion);
+            $this->deployRelease($minorVersion);
 
             $output->writeln('<info>Minor release ' . $minorVersion . ' successfully created.</info>');
             exit(1);
         }
 
-        $this->createMinorRelease($minorVersion);
+        $this->deployRelease($minorVersion);
         $output->writeln('<info>Minor release ' . $minorVersion . ' successfully created.</info>');
         exit(1);
     }
 
+    /**
+     * Converts current version into sementic versioning minor release.
+     * @param  string $version
+     * @return string
+     */
     public function makeMinor($version)
     {
         $version    = explode('.', $version);
@@ -54,13 +75,5 @@ class GitSemverMinorCommand extends BaseCommand
         $version    = implode('.', $version);
 
         return $version;
-    }
-
-    public function createMinorRelease($version)
-    {
-        $command = 'git tag ' . $version;
-        $this->runCommand($command);
-
-        return true;
     }
 }

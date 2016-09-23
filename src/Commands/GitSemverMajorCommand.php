@@ -8,8 +8,16 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * @package Git Semver
+ * @author  Zeeshan Ahmed <ziishaned@gmail.com>
+ */
 class GitSemverMajorCommand extends BaseCommand
 {
+    /**
+     * Configures the command
+     * @return void
+     */
     public function configure()
     {
         $this->setName('major')
@@ -20,48 +28,53 @@ class GitSemverMajorCommand extends BaseCommand
         ;
     }
 
+    /**
+     * Executes the command
+     * @param  Symfony\Component\Console\Output\OutputInterface                 $output 
+     * @param  Symfony\Component\Console\Input\InputInterface\InputInterface    $input  
+     * @return void                  
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->output = $output;
+        $this->output   = $output;
+        $prefix         = $input->getOption('prefix');
+        $postfix        = $input->getOption('postfix');
 
         if ($input->getOption('fetch')) {
             $this->fetchVersions();
         };
 
-        $currentVersion = $this->getVersion();
+        $currentVersion = $this->getCurrentVersion();
         $majorVersion = $this->makeMajor($currentVersion);
 
-        if ($input->getOption('prefix') || $input->getOption('postfix')) {
-            if ($input->getOption('prefix') && $input->getOption('postfix')) {
-                $majorVersion = $input->getOption('prefix') . $majorVersion . $input->getOption('postfix');
+        if ($prefix || $postfix) {
+            if ($prefix && $postfix) {
+                $majorVersion = $prefix . $majorVersion . $postfix;
             } else {
-                $majorVersion = ($input->getOption('prefix') === null) ? $majorVersion . $input->getOption('postfix') : $input->getOption('prefix') . $majorVersion;
+                $majorVersion = ($prefix === null) ? $majorVersion . $postfix : $prefix . $majorVersion;
             }
-            $this->createMajorRelease($majorVersion);
+            $this->deployRelease($majorVersion);
 
             $output->writeln('<info>Major release ' . $majorVersion . ' successfully created.</info>');
             exit(1);
         }
 
-        $this->createMajorRelease($majorVersion);
+        $this->deployRelease($majorVersion);
         $output->writeln('<info>Major release ' . $majorVersion . ' successfully created.</info>');
         exit(1);
     }
 
+    /**
+     * Converts current version into sementic versioning minor release.
+     * @param  string $version
+     * @return string
+     */
     public function makeMajor($version)
     {
         $version    = explode('.', $version);
-        $version[1] = $version[1] + 1;
+        $version[0] = $version[0] + 1;
         $version    = implode('.', $version);
 
         return $version;
-    }
-
-    public function createMajorRelease($version)
-    {
-        $command = 'git tag ' . $version;
-        $this->runCommand($command);
-
-        return true;
     }
 }
