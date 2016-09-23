@@ -16,9 +16,9 @@ use Zeeshan\GitSemver\Commands\GitSemverCurrentCommand;
  */
 class GitSemver
 {
-    const APPLICATION_NAME = 'Git Semver';
+    const APP_NAME = 'Git Semver';
 
-    const APPLICATION_VERSION = '1.0.0';
+    const APP_VERSION = '1.0.0';
 
     /**
      * Contains all regitered commands
@@ -52,7 +52,7 @@ class GitSemver
      */
     public function runApplication()
     {
-        $application = new Application(self::APPLICATION_NAME, self::APPLICATION_VERSION);
+        $application = new Application(self::APP_NAME, self::APP_VERSION);
         $application->addCommands($this->getCommands());
         $application->setDefaultCommand('gitsemver');
         $application->run();

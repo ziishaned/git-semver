@@ -31,11 +31,7 @@ class GitSemverCommand extends BaseCommand
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln(
-            '<info>' . GitSemver::APPLICATION_NAME . '</info> 
-             version 
-            <comment>' . GitSemver::APPLICATION_VERSION . '</comment>'
-        );
+        $output->writeln('<info>'.GitSemver::APP_NAME.'</info> version <comment>'.GitSemver::APP_VERSION.'</comment>');
         $output->writeln('');
         $output->writeln('<comment>Usage: </comment>');
         $output->writeln('  command [options] [arguments]');
