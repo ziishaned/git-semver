@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Zeeshan\GitSemver\Commands;
 
@@ -9,18 +9,18 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GitSemverCommand extends BaseCommand
 {
-	public function configure()
+    public function configure()
     {
- 		$this->setName('gitsemver')
- 			 ->setDescription('Show the detailed usage of commands and options.');
+        $this->setName('gitsemver')
+             ->setDescription('Show the detailed usage of commands and options.');
     }
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-    	$output->writeln('<info>' . GitSemver::APPLICATION_NAME . '</info> version <comment>' . GitSemver::APPLICATION_VERSION . '</comment>');
-    	$output->writeln('');
-    	$output->writeln('<comment>Usage: </comment>');
-    	$output->writeln('  command [options] [arguments]');
+        $output->writeln('<info>' . GitSemver::APPLICATION_NAME . '</info> version <comment>' . GitSemver::APPLICATION_VERSION . '</comment>');
+        $output->writeln('');
+        $output->writeln('<comment>Usage: </comment>');
+        $output->writeln('  command [options] [arguments]');
         $output->writeln('');
         $output->writeln('<comment>Options: </comment>');
         $output->writeln('  <info>-h, --help        Display this help message</info>');
@@ -30,7 +30,7 @@ class GitSemverCommand extends BaseCommand
         $output->writeln('  <info>-f  --fetch       Fetch latest versions from remote</info>');
         $output->writeln('  <info>    --prefix      Insert a prefix to the release</info>');
         $output->writeln('  <info>    --postfix     Insert a postfix to the release</info>');
-    	$output->writeln('');
+        $output->writeln('');
         $output->writeln('<comment>Available Commands: </comment>');
         $output->writeln('  <info>current           Display current version of the application</info>');
         $output->writeln('  <info>patch             Increment patch component with value of 1</info>');

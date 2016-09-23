@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Zeeshan\GitSemver\Commands;
 
@@ -22,7 +22,7 @@ class BaseCommand extends Command
         $versions = $this->runCommand($command);
         
         return $this->getCurrentVersion($versions);
-    }   
+    }
 
     public function fetchVersions()
     {

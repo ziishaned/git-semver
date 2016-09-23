@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Zeeshan\GitSemver;
 
@@ -12,33 +12,33 @@ use Zeeshan\GitSemver\Commands\GitSemverCurrentCommand;
 
 class GitSemver
 {
-	const APPLICATION_NAME = 'Git Semver';
+    const APPLICATION_NAME = 'Git Semver';
 
-	const APPLICATION_VERSION = '1.0.0';  
+    const APPLICATION_VERSION = '1.0.0';
 
-	private $commands = []; 
+    private $commands = [];
 
-	public function __construct()
-	{
-		$this->commands = [
-			new GitSemverCommand(),
-			new GitSemverMajorCommand(),
-			new GitSemverMinorCommand(),
-			new GitSemverPatchCommand(),
-			new GitSemverCurrentCommand(),
-		];
-	}	
+    public function __construct()
+    {
+        $this->commands = [
+            new GitSemverCommand(),
+            new GitSemverMajorCommand(),
+            new GitSemverMinorCommand(),
+            new GitSemverPatchCommand(),
+            new GitSemverCurrentCommand(),
+        ];
+    }
 
-	public function getCommands()
-	{
-		return $this->commands;
-	}
+    public function getCommands()
+    {
+        return $this->commands;
+    }
 
-	public function runApplication()
-	{
-		$application = new Application(self::APPLICATION_NAME, self::APPLICATION_VERSION);
-		$application->addCommands($this->getCommands());
-		$application->setDefaultCommand('gitsemver');
-		$application->run();
-	}
+    public function runApplication()
+    {
+        $application = new Application(self::APPLICATION_NAME, self::APPLICATION_VERSION);
+        $application->addCommands($this->getCommands());
+        $application->setDefaultCommand('gitsemver');
+        $application->run();
+    }
 }
