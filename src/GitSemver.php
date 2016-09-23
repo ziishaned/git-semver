@@ -21,7 +21,7 @@ class GitSemver
     const APPLICATION_VERSION = '1.0.0';
 
     /**
-     * Contains all regitered commands 
+     * Contains all regitered commands
      * @var array
      */
     private $commands = [];
@@ -47,7 +47,7 @@ class GitSemver
     }
 
     /**
-     * Application main entery point 
+     * Application main entery point
      * @return void
      */
     public function runApplication()

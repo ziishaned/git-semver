@@ -31,9 +31,9 @@ class GitSemverCurrentCommand extends BaseCommand
 
     /**
      * Executes the command
-     * @param  Symfony\Component\Console\Output\OutputInterface                 $output 
-     * @param  Symfony\Component\Console\Input\InputInterface\InputInterface    $input  
-     * @return void                  
+     * @param  Symfony\Component\Console\Output\OutputInterface                 $output
+     * @param  Symfony\Component\Console\Input\InputInterface\InputInterface    $input
+     * @return void
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {

@@ -25,13 +25,17 @@ class GitSemverCommand extends BaseCommand
 
     /**
      * Executes the command
-     * @param  Symfony\Component\Console\Output\OutputInterface                 $output 
-     * @param  Symfony\Component\Console\Input\InputInterface\InputInterface    $input  
-     * @return void                  
+     * @param  Symfony\Component\Console\Output\OutputInterface                 $output
+     * @param  Symfony\Component\Console\Input\InputInterface\InputInterface    $input
+     * @return void
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln('<info>' . GitSemver::APPLICATION_NAME . '</info> version <comment>' . GitSemver::APPLICATION_VERSION . '</comment>');
+        $output->writeln(
+            '<info>' . GitSemver::APPLICATION_NAME . '</info> 
+             version 
+            <comment>' . GitSemver::APPLICATION_VERSION . '</comment>'
+        );
         $output->writeln('');
         $output->writeln('<comment>Usage: </comment>');
         $output->writeln('  command [options] [arguments]');
