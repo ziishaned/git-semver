@@ -27,14 +27,14 @@ class GitSemverCommand extends BaseCommand
         $output->writeln('  <info>-V, --version     Display this application version</info>');
         $output->writeln('  <info>    --ansi        Force ANSI output</info>');
         $output->writeln('  <info>    --no-ansi     Disable ANSI output</info>');
-        $output->writeln('  <info>-f  --fetch       Fetch latest versions from remote</info>');
+        $output->writeln('  <info>-f  --fetch       Fetch the remote tags before applying the version</info>');
         $output->writeln('  <info>    --prefix      Insert a prefix to the release</info>');
         $output->writeln('  <info>    --postfix     Insert a postfix to the release</info>');
         $output->writeln('');
         $output->writeln('<comment>Available Commands: </comment>');
         $output->writeln('  <info>current           Display current version of the application</info>');
-        $output->writeln('  <info>patch             Increment patch component with value of 1</info>');
-        $output->writeln('  <info>major             Increment major component with value of 1</info>');
-        $output->writeln('  <info>minor             Increment minor component with value of 1</info>');
+        $output->writeln('  <info>patch             Create a patch release e.g. it will generate x.y.0 to x.y.1</info>');
+        $output->writeln('  <info>major             Create a major release e.g. it will generate x.0.z to x.1.z</info>');
+        $output->writeln('  <info>minor             Create a minor release e.g. it will generate 0.y.z to 1.y.z</info>');
     }
 }
