@@ -47,8 +47,8 @@ class GitSemverCommand extends BaseCommand
         $output->writeln('');
         $output->writeln('<comment>Available Commands: </comment>');
         $output->writeln('  <info>current           Display current version of the application</info>');
-        $output->writeln('  <info>patch             Create a patch release e.g. it will generate x.y.0 to x.y.1</info>');
-        $output->writeln('  <info>major             Create a major release e.g. it will generate x.0.z to x.1.z</info>');
-        $output->writeln('  <info>minor             Create a minor release e.g. it will generate 0.y.z to 1.y.z</info>');
+        $output->writeln('  <info>patch             Create a patch release</info>');
+        $output->writeln('  <info>major             Create a major release</info>');
+        $output->writeln('  <info>minor             Create a minor release</info>');
     }
 }
