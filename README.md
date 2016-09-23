@@ -1,6 +1,4 @@
-
-
- # git-semver
+# git-semver
 
 [![Build Status](https://travis-ci.org/zeeshanu/git-semver.svg?branch=master)](https://travis-ci.org/zeeshanu/git-semver)
 [![Latest Version](https://img.shields.io/github/release/zeeshanu/git-profile.svg?style=flat-square)](https://github.com/zeeshanu/git-profile/releases)
