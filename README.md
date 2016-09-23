@@ -1,5 +1,9 @@
 # git-semver
 
+[![Build Status](https://travis-ci.org/zeeshanu/git-semver.svg?branch=master)](https://travis-ci.org/zeeshanu/git-semver)
+[![Latest Version](https://img.shields.io/github/release/zeeshanu/git-profile.svg?style=flat-square)](https://github.com/zeeshanu/git-profile/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+
 > A CLI tool to generate [semantic versioning](semver.org) compliant tags for your git repositories. 
 
 ## Usage
