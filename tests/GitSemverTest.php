@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Tests;
 
@@ -8,7 +8,7 @@ use Symfony\Component\Console\Application;
 
 class GitSemverTest extends \PHPUnit_Framework_TestCase
 {
-	private $app;
+    private $app;
 
     protected function setUp()
     {
