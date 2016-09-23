@@ -21,7 +21,11 @@ class BaseCommand extends Command
     public function runCommand($command)
     {
         $process = new Process($command);
-        $process->run();
+        try {
+            $process->mustRun();
+        } catch (\Exception $e) {
+            throw new \Exception("Command failed! Please check if it is valid repository and has some commits.", 1);
+        }
         return $process->getOutput();
     }
 
