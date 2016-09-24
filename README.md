@@ -90,6 +90,9 @@ The above command will generate tags with `v` prefixed e.g. `v1.0.0` or `v1.3.2`
 This will result in something along the lines of `3.5.1-dev` depending upon the last tag
 
 ## A Real World Example of Semantic Versioning
+
+Some useful examples of semantic versioning are given below:
+
 ```
 v0.0.0 // New project
 v0.1.0 // Add some functionality
