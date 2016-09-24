@@ -10,7 +10,7 @@
 
 * Download the file from [here](https://github.com/zeeshanu/git-semver/releases/download/v1.0.0/git-semver)
 * Assign required permissions `sudo chmod -R 755 git-semver`
-* Run `sudo mv git-semver /usr/local/bin/git-profile`
+* Run `sudo mv git-semver /usr/local/bin/git-semver`
 
 ## Usage
 
