@@ -10,6 +10,7 @@
         "git"
     ],
     "require": {
+        "php": "^5.5|^7.0",
         "symfony/console": "^3.1",
         "symfony/process": "^3.1"
     },
